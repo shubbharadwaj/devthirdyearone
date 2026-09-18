@@ -2,7 +2,7 @@ name: Event Filters and Activity Types
 
 on:
   pull_request:
-    types: [opened, closed, reopened]
+    types: [opened, reopened]
     branches:
       - main
       - feature/workflow
