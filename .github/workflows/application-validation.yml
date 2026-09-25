@@ -1,31 +1,31 @@
-##application-validation 
-name: Campus Event Manager Validation 
+# ##application-validation 
+#name: Campus Event Manager Validation 
 
-on:
-  pull_request:
-    types: [opened,reopened,synchronized ]
-    branches:
-      - main
-      - feature/workflow
+# on:
+#   pull_request:
+#     types: [opened,reopened,synchronized ]
+#     branches:
+#       - main
+#       - feature/workflow
 
-  workflow_dispatch:
+#   workflow_dispatch:
 
-jobs:
-  echo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Display Trigger Event
-        run: echo "Workflow triggered by: ${{ github.event_name }}"
+# jobs:
+#   echo:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Display Trigger Event
+#         run: echo "Workflow triggered by: ${{ github.event_name }}"
 
 
-      - name: Display Repository Files
-        run: ls -la
+#       - name: Display Repository Files
+#         run: ls -la
 
-      - name: Install Dependencies
-        run: npm ci
+#       - name: Install Dependencies
+#         run: npm ci
         
-      - name: Run Application Tests
-        run: npm test
+#       - name: Run Application Tests
+#         run: npm test
 
            
             

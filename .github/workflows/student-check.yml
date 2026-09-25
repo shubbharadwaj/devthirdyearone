@@ -1,0 +1,41 @@
+name: Student Repository Check
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  student-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Display student details
+        run: |
+          echo "Student Name: $(grep '^Name:' student.txt | cut -d':' -f2-)"
+          echo "Roll Number: $(grep '^Roll Number:' student.txt | cut -d':' -f2-)"
+          echo "Date and Time: $(date)"
+          echo "Repository: $GITHUB_REPOSITORY"
+         
+
+      - name: Check student.txt
+        run: |
+          test -f student.txt
+
+      - name: Display student.txt
+        run: cat student.txt
+
+      - name: Count lines
+        run: wc -l student.txt
+
+      - name: Search GitHub
+        run: grep "GitHub" student.txt
+
+      - name: Create report
+        run: echo "Student repository verification completed." > report.txt
+
+      
